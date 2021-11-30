@@ -1,12 +1,12 @@
 <h1 align="center">Rent Houses Germany - GCP Pipeline</h1>  
 
 <p align="center">
-  <img width="717" alt="gcp_pipeline" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/Screen%20Shot%202021-11-27%20at%2013.57.08.png?raw=true">
+  <img width="717" alt="gcp_pipeline" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/Screen%20Shot%202021-11-27%20at%2013.57.08.png?raw=true">
 </p>
 
 ### Project:
 
-- The goal of the project is to extract data about house rentals in Germany, store, process and analyze it using GCP tools. The main goal here is to practice and get used to the GCP environment.
+- The goal of the project is to extract data about house rentals in Germany, store, process and analyze it using GCP tools. The focus here is to practice and get used to the GCP environment.
 
 **Main Tools:**
 
@@ -20,25 +20,25 @@
             </td>
             <td width="25%" align="center">
               <span>Cloud Storage</span><br><br>
-              <img height="64px" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/cloud_storage.png?raw=true">
+              <img height="64px" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/cloud_storage.png?raw=true">
             </td>
             <td width="25%" align="center">
               <span>BigQuery</span><br><br>
-              <img height="64px" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/bigquery.png?raw=true">
+              <img height="64px" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/bigquery.png?raw=true">
             </td>
             <td width="25%" align="center">
               <span>Dataprep</span><br><br>
-              <img height="64px" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/dataprep.png?raw=true">
+              <img height="64px" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/dataprep.png?raw=true">
             </td>
           </tr>
           <tr valign="top">
             <td width="25%" align="center">
               <span>Data Studio</span><br><br>
-              <img height="64px" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/data_studio.png?raw=true">
+              <img height="64px" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/data_studio.png?raw=true">
             </td>
             <td width="25%" align="center">
               <span>Looker</span><br><br>
-              <img height="64px" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/looker.png?raw=true">
+              <img height="64px" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/looker.png?raw=true">
             </td>
             <td width="25%" align="center">
               <span>Crontab</span><br><br>
@@ -62,7 +62,7 @@ Source: https://www.immonet.de/
 - All the extractions steps are scheduled though a Crontab Job to run everyday at 0h.
 
 <p align="center">
-  <img width="1000" alt="cronjob" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/Screen%20Shot%202021-11-28%20at%2014.57.34.png?raw=true">
+  <img width="1000" alt="cronjob" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/Screen%20Shot%202021-11-28%20at%2014.57.34.png?raw=true">
 </p>
 
 ### Data Preprocessing.
@@ -72,13 +72,13 @@ Source: https://www.immonet.de/
 ```all_offers_infos_raw.csv```:
 
 <p align="center">
-  <img width="1000" alt="raw_infos" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/Screen%20Shot%202021-11-28%20at%2013.12.36.png?raw=true">
+  <img width="1000" alt="raw_infos" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/Screen%20Shot%202021-11-28%20at%2013.12.36.png?raw=true">
 </p>
 
 ```all_offers_infos_pp.csv```:
 
 <p align="center">
-  <img width="1000" alt="raw_infos" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/Screen%20Shot%202021-11-28%20at%2013.13.52.png?raw=true">
+  <img width="1000" alt="raw_infos" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/Screen%20Shot%202021-11-28%20at%2013.13.52.png?raw=true">
 </p>
 
 ### Data Cleaning and Preparation.
@@ -86,7 +86,7 @@ Source: https://www.immonet.de/
 - Here is used Cloud Dataprep to clean and prepare the data for further use. To transform the rent data into useble information first we need to clean and prepare it. Dataprep is a realy good tool where we can look inside the data and can perform all kind of filtering, removing and preparations. Dataprep gets the preprocessed csv file from Cloud Storage and runs a "recipe" tranforming the data to be analyzed. Dataprep saves the cleaned and final csv file both into Data Storage (a backup) and into a BigQuery warehouse.
 
 <p align="center">
-  <img width="1000" alt="dataprepJob" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/Screen%20Shot%202021-11-28%20at%2015.00.32.png?raw=true">
+  <img width="1000" alt="dataprepJob" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/Screen%20Shot%202021-11-28%20at%2015.00.32.png?raw=true">
 </p>
 
 - The Dataproc job was scheduled to run everyday 7 A.M and update the data source for the reports.
@@ -95,7 +95,7 @@ Source: https://www.immonet.de/
 
 - With the data cleaned and loaded into BigQuery it's time to display the information. The GCP tools used to display the data was Data Studio and Looker. First I used Data Studio to make a simple report summaring all the rent houses main informantion and schedule to send an e-mail with the updated report avery day at 8 A.M.
 
-  <img width="1201" alt="data_studio_dashboard" src="https://github.com/felipedmnq/rent-houses--germany/blob/master/GCP_pipeline/images/Screen%20Shot%202021-11-27%20at%2010.30.34.png?raw=true">
+  <img width="1201" alt="data_studio_dashboard" src="https://github.com/felipedmnq/GCP-data-pipeline/blob/master/images/Screen%20Shot%202021-11-27%20at%2010.30.34.png?raw=true">
 </p>
 
 
@@ -107,5 +107,6 @@ Source: https://www.immonet.de/
 
 ### Conclusion.
 
-- The tools available on the Google Cloud Platform are simply amazing. As in all Cloud platforms, the tools are available and are arranged in a way to make the user's life easier, it is really cool and very easy to build an entire ETL/ELT process using the available tools and it makes everything much easier and more agile. 
-The availability of the tools in one place and the easy integration between them makes the life of the Data Engineer, Data Scientist and Data Analyst and any developer much easier and more practical. For me, I loved being able to experiment with these tools (I'm still experimenting) and certainly the next steps will be to continue studying and learning cloud environments and in the future to seek certifications.
+- The tools available on Google Cloud Platform are simply amazing. As in all Cloud platforms, the tools are available and are arranged in a way to make the user's life easier, it is really cool and very practical to build an entire ETL/ELT process using the available tools and it makes everything much easier and agile. 
+The fact that you don't have to deal with hardware fiscally, the automated scalability, the advanced security controls, the availability of virtually all the necessary tools in one place, the integration between the tools, and all the other characteristics of cloud environments contribute greatly to the considerable increase in productivity, in environments like these we only need to focus on doing the main part of our job, on delivering the result, and that is amazing.
+For me it has been a very pleasant experience to work and experience these features, the next steps now are to continue learning and applying them and in the future to seek certifications.
